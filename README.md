@@ -10,3 +10,6 @@
 * Об'єктно-орієнтований підхід
 * DOM (Document Object Model) маніпуляції
 * Легкість використання
+
+---
+[Js Automation tools](aqa/js-aqa-tools.md)
