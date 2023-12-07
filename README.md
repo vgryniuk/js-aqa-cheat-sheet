@@ -13,3 +13,4 @@
 
 ---
 [Js Automation tools](aqa/js-aqa-tools.md)
+[Написання першої програми на JavaScript](code/quickstart.md)
