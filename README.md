@@ -18,4 +18,6 @@
 
 [Js basics](code/basics.md)
 
+[Масиви](code/arrays.md)
+
 
