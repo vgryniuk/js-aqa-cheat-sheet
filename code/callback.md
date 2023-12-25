@@ -39,7 +39,7 @@ processArray(numbers, printElement);
 ```
 
 ```
-// Приклад колбека для методу map()
+// Приклад анонімного колбека для методу map()
 const numbers = [1, 2, 3, 4, 5];
 
 const doubledNumbers = numbers.map(function(number) {
