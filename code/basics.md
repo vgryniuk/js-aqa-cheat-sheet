@@ -112,4 +112,91 @@ let str2 = 'Це рядок з одинарними лапками';
 * **split():** Розбиває рядок на масив підрядків за вказаним розділювачем.
 ---
 
+### Створення та ініціалізація об'єктів:
+
+* **Літеральний спосіб:** Об'єкти можна створювати безпосередньо за допомогою фігурних дужок та визначення властивостей та їх значень:
+
+```
+let person = {
+  firstName: "John",
+  lastName: "Doe",
+  age: 30,
+  hobbies: ["reading", "hiking", "cooking"],
+  address: {
+    street: "123 Main St",
+    city: "Anytown",
+    country: "Country"
+  }
+};
+```
+
+* **Використання конструктора Object():** Об'єкт можна створити за допомогою конструктора Object() та додавати властивості:
+
+```
+    let car = new Object();
+    car.make = "Toyota";
+    car.model = "Corolla";
+    car.year = 2022;
+```
+
+* **Основні властивості об'єктів:** Властивості у об'єктів представляють собою пари "ключ-значення" і можуть бути доступні та змінені:
+```
+let person = {
+  firstName: "John",
+  lastName: "Doe",
+  age: 30
+};
+
+console.log(person.firstName); // Виведе: John
+person.age = 31;
+console.log(person.age); // Виведе: 31
+```
+
+* **Вкладені об'єкти:** Об'єкти можуть містити в собі інші об'єкти як властивості.
+* **Масиви в об'єктах:** Об'єкти можуть також містити масиви як властивості:
+* **`hasOwnProperty()`:** Метод `hasOwnProperty()` перевіряє, чи має об'єкт певну власну властивість (тобто властивість, яка не успадкована від прототипу).
+```
+let person = {
+  name: "John",
+  age: 30
+};
+
+console.log(person.hasOwnProperty("name")); // Результат: true
+console.log(person.hasOwnProperty("toString")); // Результат: false (цей метод успадкований)
+```
+* **`keys()`:** Метод `Object.keys()` повертає масив зі всіма перелічуваними властивостями об'єкта у вигляді рядків. Мметод корисний, коли потрібно отримати список ключів у об'єкта для подальшої обробки чи ітерації.
+```
+let person = {
+  name: "John",
+  age: 30
+};
+
+let keys = Object.keys(person);
+console.log(keys); // Результат: ["name", "age"]
+```
+* **`getOwnPropertyDescriptor()`:** Метод `Object.getOwnPropertyDescriptor()` повертає дескриптор властивості для вказаного ключа об'єкта. Дескриптор включає характеристики властивості, такі як value, writable, enumerable, та configurable.
+```
+let person = {
+  name: "John",
+  age: 30
+};
+
+let descriptor = Object.getOwnPropertyDescriptor(person, "name");
+console.log(descriptor);
+// Результат: { value: 'John', writable: true, enumerable: true, configurable: true }
+```
+* **`defineProperty()`:** Метод `Object.defineProperty()` дозволяє додати або змінити властивість об'єкта з вказаними характеристиками.
+```
+let person = {};
+
+Object.defineProperty(person, "name", {
+  value: "John",
+  writable: true,
+  enumerable: true,
+  configurable: true
+});
+
+console.log(person.name); // Результат: "John"
+```
+
 
