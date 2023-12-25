@@ -198,5 +198,5 @@ Object.defineProperty(person, "name", {
 
 console.log(person.name); // Результат: "John"
 ```
-
+---
 
