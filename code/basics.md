@@ -199,4 +199,52 @@ Object.defineProperty(person, "name", {
 console.log(person.name); // Результат: "John"
 ```
 ---
+**Замикання (closure)** в JavaScript - це концепція, коли функція має доступ до змінних з області видимості, в якій вона була створена, навіть після того, як ця область видимості закінчилася. Closure може бути корисним там, де потрібно зберігати стан, забезпечуючи приватність даних або виконуючи певні дії з доступом до локальних змінних функції. 
+
+
+Типові сценарії, де використання замикань може бути корисним:
+
+* **Фабричні функції:** Вони створюють і повертають об'єкти, що мають доступ до приватних змінних. 
+```
+function createCounter() {
+  let count = 0;
+  return function() {
+    return ++count;
+  };
+}
+let counter = createCounter();
+console.log(counter()); // 1
+console.log(counter()); // 2
+```
+* **Обробники подій:** При роботі з подіями можна використовувати замикання для збереження даних та створення інкапсульованих обробників.
+```
+function onClickHandler() {
+  let count = 0;
+  return function() {
+    count++;
+    console.log(`Button clicked ${count} times`);
+  };
+}
+let clickHandler = onClickHandler();
+document.getElementById('myButton').addEventListener('click', clickHandler);
+```
+* **Модулі:** Замикання використовуються для імітації приватних методів і змінних у модулях, що допомагає уникнути змішування змінних в глобальному просторі імен.
+```
+    let myModule = (function() {
+      let privateVariable = 'I am private';
+
+      function privateMethod() {
+        console.log('This is a private method');
+      }
+
+      return {
+        publicMethod: function() {
+          console.log('This is a public method');
+        },
+      };
+    })();
+
+    myModule.publicMethod(); // Звернення до публічного методу
+```
+
 
