@@ -307,3 +307,53 @@ person1.sayHello(); // Виведе: Hello, my name is Alice
 person2.sayHello(); // Виведе: Hello, my name is Bob
 ```
 ---
+### Destructing
+**Деструктуризація (Destructuring)** є потужним інструментом в JavaScript, який дозволяє зручно витягувати дані з об'єктів і масивів, спрощуючи роботу зі структурами даних. Вона може застосовуватися для різноманітних завдань, включаючи отримання даних з об'єктів, масивів, параметрів функцій та вкладених структур.
+##### Деструктуризація об'єктів:
+```
+const person = { name: 'Alice', age: 25 };
+
+// Деструктуризація об'єкту
+const { name, age } = person;
+
+console.log(name); // Виведе: Alice
+console.log(age); // Виведе: 25
+```
+##### Деструктуризація масивів:
+```
+const numbers = [1, 2, 3, 4, 5];
+
+// Деструктуризація масиву
+const [first, second, ...rest] = numbers;
+
+console.log(first); // Виведе: 1
+console.log(second); // Виведе: 2
+console.log(rest); // Виведе: [3, 4, 5]
+```
+##### Деструктуризація параметрів функції:
+```
+function printInfo({ name, age }) {
+  console.log(`Name: ${name}, Age: ${age}`);
+}
+
+const person = { name: 'Alice', age: 25 };
+printInfo(person); // Виведе: Name: Alice, Age: 25
+```
+##### Деструктуризація вкладених об'єктів:
+```
+const user = {
+  name: 'Alice',
+  details: {
+    age: 25,
+    country: 'USA',
+  },
+};
+
+const { name, details: { age, country } } = user;
+
+console.log(name); // Виведе: Alice
+console.log(age); // Виведе: 25
+console.log(country); // Виведе: USA
+```
+---
+
