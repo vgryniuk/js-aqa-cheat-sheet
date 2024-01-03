@@ -356,4 +356,44 @@ console.log(age); // Виведе: 25
 console.log(country); // Виведе: USA
 ```
 ---
+### Functions with arbitrary parameters
+В JavaScript є кілька способів роботи з функціями, які приймають довільну кількість параметрів: `argument`s, `rest` параметри та оператор розпилення (`spread operator`).
+##### `arguments`
+**`arguments`** - це спеціальний об'єкт, який містить всі передані параметри до функції. Це не масив, а об'єкт подібний до масиву, який має властивість `length` та індексовані значення.
+```
+function sum() {
+  let result = 0;
+  for (let i = 0; i < arguments.length; i++) {
+    result += arguments[i];
+  }
+  return result;
+}
 
+console.log(sum(1, 2, 3, 4)); // Виведе: 10
+```
+##### `Rest` параметри `(...)`:
+**`Rest`** параметри дозволяють збирати довільну кількість аргументів в масив.
+```
+function sum(...args) {
+  return args.reduce((acc, val) => acc + val, 0);
+}
+
+console.log(sum(1, 2, 3, 4)); // Виведе: 10
+```
+##### `Spread` оператор `(...)`:
+**`Spread`** оператор використовується для розпилення масивів або об'єктів на окремі елементи.
+```
+const numbers = [1, 2, 3, 4];
+console.log(...numbers); // Виведе: 1 2 3 4
+
+const combined = [...numbers, 5, 6, 7];
+console.log(combined); // Виведе: [1, 2, 3, 4, 5, 6, 7]
+```
+```
+function multiply(a, b, c) {
+  return a * b * c;
+}
+
+const numbers = [2, 3, 4];
+console.log(multiply(...numbers)); // Виведе: 24
+```
