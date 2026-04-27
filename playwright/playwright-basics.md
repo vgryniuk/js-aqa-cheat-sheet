@@ -18,3 +18,63 @@ test('example test', async ({ page }) => {
   await expect(page).toHaveTitle(/Example/);
 });
 ```
+---
+
+### Basic actions
+
+| Дія                       | Опис                               |
+| ------------------------- | ---------------------------------- |
+| `locator.check()`         | Позначити input checkbox           |
+| `locator.click()`         | Натиснути на елемент               |
+| `locator.uncheck()`       | Зняти позначку з checkbox          |
+| `locator.hover()`         | Навести курсор миші на елемент     |
+| `locator.fill()`          | Заповнити поле форми, ввести текст |
+| `locator.focus()`         | Перевести фокус на елемент         |
+| `locator.press()`         | Натиснути одну клавішу             |
+| `locator.setInputFiles()` | Вибрати файли для завантаження     |
+| `locator.selectOption()`  | Вибрати опцію у випадаючому списку |
+
+### Basic assertions
+
+| Асерція                             | Опис                                  |
+| ----------------------------------- | ------------------------------------- |
+| `expect(locator).toBeChecked()`     | Checkbox позначений                   |
+| `expect(locator).toBeEnabled()`     | Елемент (контрол) увімкнений          |
+| `expect(locator).toBeVisible()`     | Елемент видимий                       |
+| `expect(locator).toContainText()`   | Елемент містить текст                 |
+| `expect(locator).toHaveAttribute()` | Елемент має атрибут                   |
+| `expect(locator).toHaveCount()`     | Список елементів має задану довжину   |
+| `expect(locator).toHaveText()`      | Текст елемента відповідає очікуваному |
+| `expect(locator).toHaveValue()`     | Input-елемент має значення            |
+| `expect(page).toHaveTitle()`        | Сторінка має заголовок                |
+| `expect(page).toHaveURL()`          | Сторінка має URL                      |
+
+
+### Auto-waiting
+Playwright виконує набір перевірок “готовності до дії” перед виконанням операцій, щоб гарантувати коректну поведінку. Він автоматично очікує, поки всі необхідні перевірки пройдуть успішно, і лише тоді виконує дію. Якщо перевірки не проходять у межах заданого timeout, дія завершується помилкою TimeoutError.
+
+| Дія                                | Видимий | Стабільний | Приймає події | Увімкнений | Редагований |
+| ---------------------------------- | ------- | ---------- | ------------- | ---------- | ----------- |
+| `locator.check()`                  | Так     | Так        | Так           | Так        | -           |
+| `locator.click()`                  | Так     | Так        | Так           | Так        | -           |
+| `locator.dblclick()`               | Так     | Так        | Так           | Так        | -           |
+| `locator.setChecked()`             | Так     | Так        | Так           | Так        | -           |
+| `locator.tap()`                    | Так     | Так        | Так           | Так        | -           |
+| `locator.uncheck()`                | Так     | Так        | Так           | Так        | -           |
+| `locator.hover()`                  | Так     | Так        | Так           | -          | -           |
+| `locator.dragTo()`                 | Так     | Так        | Так           | -          | -           |
+| `locator.screenshot()`             | Так     | Так        | -             | -          | -           |
+| `locator.fill()`                   | Так     | -          | -             | Так        | Так         |
+| `locator.clear()`                  | Так     | -          | -             | Так        | Так         |
+| `locator.selectOption()`           | Так     | -          | -             | Так        | -           |
+| `locator.selectText()`             | Так     | -          | -             | -          | -           |
+| `locator.scrollIntoViewIfNeeded()` | -       | Так        | -             | -          | -           |
+| `locator.blur()`                   | -       | -          | -             | -          | -           |
+| `locator.dispatchEvent()`          | -       | -          | -             | -          | -           |
+| `locator.focus()`                  | -       | -          | -             | -          | -           |
+| `locator.press()`                  | -       | -          | -             | -          | -           |
+| `locator.pressSequentially()`      | -       | -          | -             | -          | -           |
+| `locator.setInputFiles()`          | -       | -          | -             | -          | -           |
+
+
+
