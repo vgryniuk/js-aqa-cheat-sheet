@@ -1,4 +1,4 @@
-# js-aqa-cheat-sheet
+# js-ts-aqa-cheat-sheet
 Короткий конспект по javaScript для AQA
 
 ---
@@ -12,6 +12,11 @@
 * Легкість використання
 
 ---
+
+**TypeScript** — це мова програмування, яка є надбудовою над JavaScript і додає статичну типізацію, інтерфейси та інші інструменти для розробки більш передбачуваного і масштабованого коду.
+Код TypeScript компілюється у звичайний JavaScript і виконується в будь-якому середовищі, де працює JS (браузер, Node.js тощо).
+
+---
 [Js Automation tools](aqa/js-aqa-tools.md)
 
 [Написання першої програми на JavaScript](code/quickstart.md)
@@ -21,5 +26,7 @@
 [Масиви](code/arrays.md)
 
 [Asyncronous Calls](code/asynchronouscalls.md)
+
+[Playwright basics](playwright/playwright-basics.md)
 
 
