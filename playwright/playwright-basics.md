@@ -76,5 +76,25 @@ Playwright виконує набір перевірок “готовності 
 | `locator.pressSequentially()`      | -       | -          | -             | -          | -           |
 | `locator.setInputFiles()`          | -       | -          | -             | -          | -           |
 
+---
+
+### Test annotations
+
+Анотації в Playwright використовуються для керування виконанням тестів без зміни логіки самого тесту. Вони дозволяють позначати тести як повільні, пропускати їх або робити виконання умовним залежно від середовища.
+
+```
+test.skip(), test.fail(), test.fixme(), test.slow()
+```
+
+`test.slow()` - збільшує timeout тесту в 3 рази.
+
+### Умовні анотації (conditional skip)
+
+Playwright дозволяє пропускати тести на основі умов через test.skip() або test.fixme() з логікою.
+```
+test('skip this test', async ({ page, browserName }) => {
+  test.skip(browserName === 'firefox', 'Still working on it');
+});
+```
 
 
