@@ -1,5 +1,23 @@
 # js-ts-aqa-cheat-sheet
-Короткий конспект по javaScript для AQA
+Короткий конспект по javaScript/typeScript + Playwright для AQA
+
+### JS/TS
+[Js Automation tools](aqa/js-aqa-tools.md)
+
+[Написання першої програми на JavaScript](code/quickstart.md)
+
+[Js basics](code/basics.md)
+
+[Масиви](code/arrays.md)
+
+[Asyncronous Calls](code/asynchronouscalls.md)
+
+### Playwright
+[Playwright basics](playwright/playwright-basics.md)
+
+[Playwright Advanced](playwright/playwright-advanced-technics.md)
+
+[Playwright + AI](playwright/playwright-ai.md)
 
 ---
 **JavaScript** - мова програмування створена компанією Netscape для використання у браузерах та надання можливості динамічно маніпулювати вмістом сторінок, що було актуально для розвитку веб-технологій у 1990-2000 роках. На даний момент JavaScript можна використовувати не тільки для розробки веб-додатків, але й для створення мобільних додатків (React Native) та серверної розробки (Node.js) та ін.
@@ -17,16 +35,6 @@
 Код TypeScript компілюється у звичайний JavaScript і виконується в будь-якому середовищі, де працює JS (браузер, Node.js тощо).
 
 ---
-[Js Automation tools](aqa/js-aqa-tools.md)
 
-[Написання першої програми на JavaScript](code/quickstart.md)
-
-[Js basics](code/basics.md)
-
-[Масиви](code/arrays.md)
-
-[Asyncronous Calls](code/asynchronouscalls.md)
-
-[Playwright basics](playwright/playwright-basics.md)
 
 
