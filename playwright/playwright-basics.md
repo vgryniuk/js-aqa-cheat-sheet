@@ -96,5 +96,49 @@ test('skip this test', async ({ page, browserName }) => {
   test.skip(browserName === 'firefox', 'Still working on it');
 });
 ```
+---
 
+### Fixtures
 
+**Fixtures** — це механізм для підготовки та інʼєкції залежностей у тести. Вони дозволяють централізовано створювати, конфігурувати і очищати ресурси (наприклад, page, browser, context) і передавати їх у тест як параметри.
+
+**Fixtures = dependency injection + lifecycle management**
+
+**Основні ідеї:**
+* **Ізоляція:** кожен тест отримує незалежні ресурси
+* **Повторне використання:** один раз описав — використовуєш у всіх тестах
+* **Композиція:** fixtures можна будувати поверх інших
+* **Автоматичний lifecycle:**  Playwright сам викликає setup і teardown
+
+**Вбудовані (built-in) fixtures**
+`page` — вкладка браузера
+`context` — ізольований browser context
+`browser — інстанс браузера
+`request` — API client
+`browserName` — поточний браузер
+
+Можна створювати кастомні фікстури наприклад для:
+* логіну користувача
+* підготовки тестових даних
+* обгортки API
+* спільних setup сценаріїв
+---
+### Projects 
+**Projects** — це механізм конфігурації, який дозволяє запускати один і той самий набір тестів у різних середовищах. Playwright бере один тест і проганяє його кілька разів — по одному разу для кожного project.
+```
+projects: [
+  {
+            name: 'chromium',
+            use: {
+                ...devices['Desktop Chrome'],
+                deviceScaleFactor: undefined,
+                viewport: null,
+                launchOptions: {
+                    args: ['--window-size=1920,1080'],
+                },
+            },
+  { name: 'firefox' },
+  { name: 'mobile', use: { ...devices['iPhone 13'] } }
+]
+```
+---
