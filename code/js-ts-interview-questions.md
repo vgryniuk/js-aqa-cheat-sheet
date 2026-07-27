@@ -65,8 +65,8 @@ test(); \\10 бо var має function scope
 * **Block scope** — змінна доступна тільки всередині блоку `{}`.
 
 `var` має function scope.
-
 `let` і `const` мають block scope.
+
 ---
 
 ### any vs unknown у TypeScript
