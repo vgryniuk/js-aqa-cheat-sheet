@@ -147,3 +147,15 @@ null === undefined // false
 console.log(name);
 var name = "John"; // undefined
 ```
+```
+console.log(name);
+let name = "John"; // ReferenceError
+```
+
+```
+login(); // Login
+
+function login() {
+    console.log("Login");
+}
+```
