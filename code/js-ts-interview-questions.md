@@ -159,6 +159,8 @@ function login() {
     console.log("Login");
 }
 ```
+---
+
 ### Function Declaration vs Function Expression vs Arrow Function
 * **Function Declaration** - функція, оголошена через ключове слово `function`. Має hoisting — може бути викликана до місця оголошення.
 ```
