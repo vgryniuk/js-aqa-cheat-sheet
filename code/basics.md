@@ -130,6 +130,43 @@ if (typeof value === "string") {
 
 ---
 
+### interface vs type
+* **interface** — описує структуру об'єкта (контракт).
+* **type** — створює будь-який тип: об'єкти, union, primitive, tuple тощо.
+```
+interface User {
+  name: string;
+  age: number;
+}
+
+type Status = "success" | "error";
+```
+Interface використовує `extends`
+```
+interface User {
+    id: number;
+    name: string;
+}
+
+interface Admin extends User {
+    permissions: string[];
+}
+```
+
+Type використовує  `intersection (&)`
+```
+type User = {
+    id: number;
+    name: string;
+};
+
+type Admin = User & {
+    permissions: string[];
+};
+```
+---
+
+
 ### String
 В JavaScript рядки (strings) використовуються для зберігання та обробки текстової інформації. Рядок - це послідовність символів, що може включати літери, цифри, символи пунктуації та спеціальні символи. У JavaScript рядки є об'єктами і мають власні властивості та методи. Рядки можна ініціалізувати за допомогою подвійних лапок `"` або одинарних лапок `'`. 
 ```
