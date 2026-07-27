@@ -159,3 +159,53 @@ function login() {
     console.log("Login");
 }
 ```
+### Function Declaration vs Function Expression vs Arrow Function
+* **Function Declaration** - функція, оголошена через ключове слово `function`. Має hoisting — може бути викликана до місця оголошення.
+```
+sayHello();
+
+function sayHello() {
+  console.log("Hello");
+}
+```
+* **Function Expression** - функція, яка зберігається у змінну. Не має повного hoisting (залежить від var/let/const).
+```
+const sayHello = function() {
+  console.log("Hello");
+};
+
+sayHello();
+```
+* **Arrow Function** - короткий синтаксис Function Expression. Не має власного this.
+```
+const sayHello = () => {
+  console.log("Hello");
+};
+```
+---
+
+### Arrow Function 
+**Arrow function** — це короткий синтаксис для створення функції в JavaScript. Вона використовує оператор `=>` і не має власного `this`.
+
+Основні відмінності від звичайної функції:
+* Arrow function не має власного `this`.
+* Вона не має власного `arguments`.
+* Не може бути використана як конструктор через `new`.
+* Має коротший синтаксис.
+* Часто використовується для **callback-функцій**.
+
+```
+//callback
+const numbers = [1, 2, 3];
+const doubled = numbers.map(number => number * 2); //[2, 4, 6]
+```
+---
+
+### this
+**this** — це спеціальне ключове слово JavaScript, яке посилається на поточний контекст виконання функції.
+
+У JavaScript значення `this` визначається під час виконання функції.
+* У методі об'єкта `this` посилається на цей об'єкт.
+* У звичайній функції залежить від режиму виконання (strict mode або ні).
+* У класах `this` посилається на екземпляр класу.
+* Arrow function не має власного `this` і бере його із зовнішнього scope.
