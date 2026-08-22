@@ -44,7 +44,11 @@ function add(a: number, b: number): number {
     return a + b;
 }
 ```
-**Type annotation vs Type inference:** `type annotation`, це коли тип вказаний явно, `type inference` це коли ts сам визначає тип на етапі статичної перевірки коду. Не потрібно явно вказувати тип там, де TypeScript легко визначає його сам. Хороший TypeScript-код не містить зайвих type annotations
+**Type annotation vs Type inference:** 
+* **`type annotation`** - тип вказаний явно
+* **`type inference`**  — це здатність TypeScript автоматично визначати тип змінної, параметра або виразу без явного зазначення типу. 
+
+Не потрібно явно вказувати тип там, де TypeScript легко визначає його сам. Хороший TypeScript-код не містить зайвих type annotations
 ```
 \\ type annotation
 let name: string = "John";
@@ -53,6 +57,3 @@ let name: string = "John";
 let name = "John";
 ```
 ---
-
-### Type Inference
-**Type inference** — це здатність TypeScript автоматично визначати тип змінної, параметра або виразу без явного зазначення типу.
