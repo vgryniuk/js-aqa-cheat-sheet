@@ -44,7 +44,9 @@ function add(a: number, b: number): number {
     return a + b;
 }
 ```
-**Type annotation vs Type inference:** 
+---
+
+### Type annotation vs Type inference:
 * **`type annotation`** - тип вказаний явно
 * **`type inference`**  — це здатність TypeScript автоматично визначати тип змінної, параметра або виразу без явного зазначення типу. 
 
