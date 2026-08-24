@@ -59,3 +59,78 @@ let name: string = "John";
 let name = "John";
 ```
 ---
+
+### Union Types
+**Union type** дозволяє змінній мати один із кількох можливих типів.
+```
+let id: string | number;
+```
+**Type Narrowing.** Щоб працювати з конкретним типом, потрібно спочатку його визначити. Найпростіший спосіб — `typeof`.
+```
+function printId(
+    id: string | number
+) {
+    if (typeof id === "string") {
+        console.log(
+            id.toUpperCase()
+        );
+    } else {
+        console.log(
+            id.toFixed(2)
+        );
+    }
+}
+```
+---
+
+### Literal Types
+**Literal type** — це тип, який дозволяє вказати конкретне значення, а не просто загальний тип. Наприклад, `string` означає: будь-який рядок. А `"success"` означає:тільки конкретний рядок `"success"`.
+```
+let status: "success";
+status = "failed"; \\ помилка
+```
+**Literal Type + Union**
+```
+let status: "pending" | "success" | "failed";
+```
+---
+
+### type
+**type** — це конструкція TypeScript, яка дозволяє створювати власні іменовані типи. 
+```
+type UserId = string;
+const id: UserId = "user-123";
+```
+Тобто замість того, щоб щоразу писати складний тип, ми можемо дати йому ім'я.
+
+**Найпростіший Type Alias**
+```
+type UserId = string;
+```
+Тепер:
+```
+const id: UserId = "123";
+```
+Це еквівалентно:
+```
+const id: string = "123";
+```
+Але UserId **дає коду семантичний сенс**.
+---
+
+### interface
+**interface** — це конструкція TypeScript для опису структури об'єкта. Вона визначає, які властивості та методи повинен мати об'єкт і яких вони типів. Одна з ключових можливостей interface — наслідування іншого interface. Interface може розширювати (`extends`) кілька interfaces. Клас може реалізувати interface через `implements`.
+```
+interface User {
+    id: number;
+    name: string;
+    email: string;
+}
+```
+**Interface для функцій.** Інтерфейс може описувати callable signature:
+```
+interface Calculator {
+    (a: number, b: number): number;
+}
+```
+---
