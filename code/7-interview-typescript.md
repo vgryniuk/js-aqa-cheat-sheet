@@ -116,6 +116,7 @@ const id: UserId = "123";
 const id: string = "123";
 ```
 Але UserId **дає коду семантичний сенс**.
+
 ---
 
 ### interface
