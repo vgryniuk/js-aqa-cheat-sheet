@@ -188,3 +188,128 @@ function throwError(message: string): never {
 * **`void`** - Функція не повертає meaningful value
 ---
 
+### Generics
+**`Generics`** — це механізм TypeScript, який дозволяє писати універсальний код, не втрачаючи типізацію. Ми не вказуємо конкретний тип заздалегідь, а передаємо його як параметр. Generics дозволяють створювати reusable code, який працює з різними типами, зберігаючи при цьому інформацію про конкретний тип.
+
+```
+function getFirst<T>(items: T[]): T { \\ функція працює з параметрами типу Т
+    return items[0];
+}
+```
+
+**Generic vs any:** 
+* **`any`** - втрачає інформацію про тип
+* **`Generic`** - зберігає інформацію про тип. Зберігається зв'язок між input та output.
+
+**Generic constraints** Іноді ми хочемо сказати, що `T` може бути **не** будь-яким типом, а лише типом, який відповідає певній умові. Для цього використовується `extends`.
+```
+function getId<T extends { id: number }>( \\ T повинен відповідати цій структурі.
+    object: T
+): number {
+    return object.id;
+}
+```
+---
+
+### Utility Types
+**`Utility Types`** — це готові типи, вбудовані в TypeScript, які дозволяють створювати нові типи на основі вже існуючих.
+
+**`Partial<T>`** робить усі properties optional.
+```
+interface User {
+    id: number;
+    name: string;
+    email: string;
+}
+
+type UpdateUser = Partial<User>;
+```
+
+Отримуємо:
+```
+type UpdateUser = {
+    id?: number;
+    name?: string;
+    email?: string;
+}
+```
+**`Required<T>`** - Протилежність `Partial`. Required<T> робить усі properties обов'язковими.
+
+**`Readonly<T>`** - Робить properties read-only.
+
+**`Pick<T, K>`** - `Pick` дозволяє взяти лише певні properties з існуючого типу.
+
+```
+interface User {
+    id: number;
+    name: string;
+    email: string;
+    age: number;
+}
+
+type UserSummary = Pick<User, "id" | "name">;
+```
+
+Оримаємо:
+```
+type UserSummary = {
+    id: number;
+    name: string;
+}
+```
+**`Omit<T, K>`** - `Omit` працює навпаки до `Pick`. Він каже: Візьми весь тип, крім зазначених properties.
+
+**`Record<K, T>`** - створює object type із заданими ключами та типом значень.
+
+**`Exclude<T, U>`** - працює з union types. Видаляє зайві типи.
+
+**`Extract<T, U>`** - Extract робить протилежне: З union залишає тільки типи, які відповідають іншому типу.
+
+**`NonNullable<T>`** - Видаляє `null` і `undefined` з union.
+
+**`ReturnType<T>`** - Дозволяє отримати тип, який повертає функція.
+
+---
+
+### enum
+**`enum`** — це конструкція TypeScript, яка дозволяє визначити набір іменованих констант.
+```
+enum Status {
+    Pending,
+    Success,
+    Failed
+}
+
+Status.Pending
+Status.Success
+Status.Failed
+```
+
+**Numeric Enum**
+```
+enum Status {
+  Pending, // 0
+  Success, // 1
+  Error    // 2
+}
+
+console.log(Status.Success); // 1
+```
+
+**String Enum**
+```
+enum Status {
+  Pending = "pending",
+  Success = "success",
+  Error = "error"
+}
+
+console.log(Status.Success); // "success"
+```
+**enum vs union type:**
+**`union`** — це просто набір дозволених значень на рівні типів.
+**`enum`** - створює реальну конструкцію, яка існує під час виконання (runtime).
+
+**`const enum`** — оптимізований варіант enum, значення якого компілятор може вставляти без створення звичайного runtime enum object.
+
+---
